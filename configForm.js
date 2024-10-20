@@ -20,6 +20,10 @@ function setConfig(event) {
 
 function createClient(url, key) {
   sb = supabase.createClient(url, key);
+
+  if (typeof onCreated === "function") {
+    onCreated();
+  }
 }
 
 async function setBgColor() {
